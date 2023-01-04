@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
 @Data
-@Builder
+//@Builder
 @Document(collection = "person")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Person {
