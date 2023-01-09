@@ -17,53 +17,51 @@ public class PersonController {
     private PersonService personService;
 
     @PostMapping
-    public String Save(@RequestBody Person person)
-    {
+    public String Save(@RequestBody Person person) {
         return personService.save(person);
     }
 
     @GetMapping
-    public List<Person> getPersonStartWith(@RequestParam("name") String name)
-    {
+    public List<Person> getPersonStartWith(@RequestParam("name") String name) {
         return personService.getPersonStartWith(name);
     }
+
     @GetMapping("/age")
-    public List<Person> getByPersonAge(@RequestParam Integer minAge, @RequestParam Integer maxAge)
-    {
+    public List<Person> getByPersonAge(@RequestParam Integer minAge, @RequestParam Integer maxAge) {
         return personService.getByPersonAge(minAge, maxAge);
     }
+
     @GetMapping("/all")
-    public List<Person> getAll()
-    {
+    public List<Person> getAll() {
         return personService.getAll();
     }
+
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id)
-    {
+    public void delete(@PathVariable String id) {
         personService.delete(id);
     }
+
     @DeleteMapping
-    public void deleteAll()
-    {
+    public void deleteAll() {
         personService.deleteAll();
     }
 
     @PutMapping
-    public String updatePerson(@RequestBody Person person)
-    {
+    public String updatePerson(@RequestBody Person person) {
         return personService.save(person);
     }
 
 
-    /**Pagination*/
+    /**
+     * Pagination
+     */
     @GetMapping("/search")
     public Page<Person> searchPerson(@RequestParam(required = false) String name,
                                      @RequestParam(required = false) Integer minAge,
                                      @RequestParam(required = false) Integer maxAge,
                                      @RequestParam(required = false) String city,
                                      @RequestParam(defaultValue = "0") Integer page,
-                                     @RequestParam(defaultValue = "5") Integer size)
-    {
+                                     @RequestParam(defaultValue = "5") Integer size) {
         Pageable pageable = PageRequest.of(page, size);
         return personService.search(name, minAge, maxAge, city, pageable);
     }

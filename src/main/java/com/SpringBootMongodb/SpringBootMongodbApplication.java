@@ -8,8 +8,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SpringBootMongodbApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootMongodbApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootMongodbApplication.class, args);
+    }
 
 }
